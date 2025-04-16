@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background: #ff6f6f;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+}
+
+.navbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hero Section */
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.hero h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #ff6f6f;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: #e05656;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.feature-box {
+  text-align: center;
+  max-width: 300px;
+  flex: 1 1 250px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #eee;
+}
+
+/* Auth Form */
+.form-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.form-container input,
+.form-container select,
+.form-container input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.form-container input:focus {
+  border: 1px solid #ff6f6f;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 111, 111, 0.3);
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff6f6f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.form-container button:hover {
+  background-color: #e05656;
+  cursor: pointer;
+}
+
+.form-container a {
+  color: #ff6f6f;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Expense Table */
+.expense-table {
+  padding: 40px 20px;
+  background: #fff;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #fafafa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+thead {
+  background-color: #ff6f6f;
+  color: white;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .feature-box {
+    max-width: 100%;
+    width: 90%;
+  }
+
+  .form-container {
+    width: 90%;
+    margin: 60px auto;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+}
