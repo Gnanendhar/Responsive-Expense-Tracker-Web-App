@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Expense</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add New Expense</h2>
+    <form id="expense-form">
+      <input type="number" placeholder="Amount (e.g., 50)" required id="amount" />
+
+      <select id="category" required>
+        <option value="">Select Category</option>
+        <option value="Food">🍔 Food</option>
+        <option value="Transport">🚗 Transport</option>
+        <option value="Entertainment">🎮 Entertainment</option>
+        <option value="Shopping">🛍️ Shopping</option>
+        <option value="Bills">📑 Bills</option>
+        <option value="Other">📦 Other</option>
+      </select>
+
+      <input type="text" placeholder="Short Description (e.g., Dinner at Cafe)" required id="description" />
+
+      <input type="date" required id="date" />
+
+      <button type="submit">Add Expense</button>
+    </form>
+    <p><a href="dashboard.html">← Back to Dashboard</a></p>
+  </div>
+
+  <script>
+    const form = document.getElementById("expense-form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const amount = document.getElementById("amount").value;
+      const category = document.getElementById("category").value;
+      const description = document.getElementById("description").value;
+      const date = document.getElementById("date").value;
+
+      if (!amount || !category || !description || !date) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const newExpense = {
+        amount,
+        category,
+        description,
+        date
+      };
+
+      let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+      expenses.push(newExpense);
+      localStorage.setItem("expenses", JSON.stringify(expenses));
+
+      alert("Expense added successfully!");
+      form.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>Dashboard</h1>
+    <nav>
+      <a href="add-expense.html">Add Expense</a>
+      <a href="view-expenses.html">View Expenses</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Welcome back!</h2>
+    <p>Here’s a quick overview of your expenses:</p>
+  </section>
+
+  <section class="features">
+    <div class="feature-box">
+      <h3>💰 Total Spent</h3>
+      <p id="total-spent">$0.00</p>
+    </div>
+    <div class="feature-box">
+      <h3>📅 Last Entry</h3>
+      <p id="last-entry">None</p>
+    </div>
+    <div class="feature-box">
+      <h3>📊 Categories Used</h3>
+      <p id="used-categories">0</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 YourExpenseApp</p>
+  </footer>
+
+  <script>
+    const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
+    let total = 0;
+    let lastDate = "None";
+    const categories = new Set();
+
+    if (expenses.length > 0) {
+      total = expenses.reduce((sum, exp) => sum + parseFloat(exp.amount), 0);
+      lastDate = expenses[expenses.length - 1].date;
+      expenses.forEach(exp => categories.add(exp.category));
+    }
+
+    document.getElementById("total-spent").textContent = `$${total.toFixed(2)}`;
+    document.getElementById("last-entry").textContent = lastDate;
+    document.getElementById("used-categories").textContent = categories.size;
+  </script>
+</body>
+</html>
